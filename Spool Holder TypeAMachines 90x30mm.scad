@@ -1,13 +1,15 @@
-mountSize			= [40,4,40];
-screwHoleSeparation	= 25;
-screwHoleInset		= (mountSize[0] - 25)/2;
+spindleSize			= [25.50, 109.37, 27];
+mountSize			= [30,4,30];
+screwHoleSeparation	= 20;
+screwHoleInset		= (mountSize[0] - screwHoleSeparation)/2;
 screwHoleDepth		= mountSize[1] + 1;
 screwHoleRadius		= 1.7;
 
 union(){
-	translate([-2,0,6])
-		import ("Spool Holder for Replicator 2 90x30mm - cutoff.stl");
-	translate([0,-mountSize[1]/2,mountSize[2]/2])
+	translate([-1,0,0])
+		scale([0.8,1,0.8]) 
+			import ("Spool Holder for Replicator 2 90x30mm - cutoff centered.stl");
+	translate([0,0,0])
 		difference(){
 			cube(mountSize,center=true);
 			for( x=[-1,1], z=[-1,1]){
